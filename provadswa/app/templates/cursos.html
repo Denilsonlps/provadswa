@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Cadastro de Cursos{% endblock %}
+
+{% block page_content %}
+
+<form action="" method="post" class="form" role="form">  
+    <div class="form-group required">
+      <label class="control-label" for="nome">Cadastre o nome do curso:</label>
+      <input class="form-control" id="nome" name="nome" required="" type="text" value="">
+    </div>
+  
+    <div class="form-group required">
+      <label class="control-label" for="descricao">Descrição do curso (250 caracteres):</label>
+      <textarea class="form-control" id="descricao" name="descricao" maxlength="250" required></textarea>
+    </div>
+  
+    <input class="btn btn-default" id="submit" name="submit" type="submit" value="Cadastrar">
+</form>
+
+<h2>Relação de cursos cadastrados</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Curso</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for curso in cursos %}
+        <tr>
+            <td>{{ curso.nome }}</td>
+            <td>{{ curso.descricao }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
